@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  last_name: MyString
+  first_name: MyString
+  dob: 2013-09-04
+  age: 1
+  doj: 2013-09-04
+  emp_id: 1
+  desgination: MyString
+  manager_name: MyString
+  manager_emp_id: 1
+  address: MyString
+  mob_no: 1
+  phone_no: 1
+  pan_no: MyString
+  off_email_id: MyString
+  pers_email_id: MyString
+  roles: MyString
+
+two:
+  last_name: MyString
+  first_name: MyString
+  dob: 2013-09-04
+  age: 1
+  doj: 2013-09-04
+  emp_id: 1
+  desgination: MyString
+  manager_name: MyString
+  manager_emp_id: 1
+  address: MyString
+  mob_no: 1
+  phone_no: 1
+  pan_no: MyString
+  off_email_id: MyString
+  pers_email_id: MyString
+  roles: MyString

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  leave_ref_id: MyString
+  requester_emp_id: 1
+  leave_type: MyString
+  start_date: 2013-09-17
+  end_date: 2013-09-17
+  no_of_days: 1
+  request_remarks: MyText
+  approver_emp_id: 1
+  status: MyString
+  action_remarks: MyText
+  admin_comments: MyText
+
+two:
+  leave_ref_id: MyString
+  requester_emp_id: 1
+  leave_type: MyString
+  start_date: 2013-09-17
+  end_date: 2013-09-17
+  no_of_days: 1
+  request_remarks: MyText
+  approver_emp_id: 1
+  status: MyString
+  action_remarks: MyText
+  admin_comments: MyText

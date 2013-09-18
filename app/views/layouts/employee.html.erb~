@@ -1,0 +1,9 @@
+<% content_for :employee_content do %>
+   <div id="employee">
+       <%= yield %>
+   </div>
+<% end %>
+<%= render :partial => "emp_home" %>
+
+<%= render :file => 'layouts/_emp_home' %>
+    

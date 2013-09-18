@@ -1,0 +1,15 @@
+<% content_for :content do %>
+<% if content_for? :emp_home %>
+   <div id="emp_home">
+         <%= yield :emp_home %>
+   </div>
+<% end %>
+
+<h6> blah blah </h6>
+ 
+   <div id="details">
+   </div>
+
+<% end %>
+
+<%= render :file => 'layouts/application' %>

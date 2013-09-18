@@ -1,0 +1,18 @@
+<%# form_for :user do -%>
+   <div id="loginform">
+     <fieldset>
+        <h3> Sign in </h3>
+               <label for="loginid">Username</label><br/>
+               <input type="text" id="loginid" size='30'><br/><br/>
+
+               <label for="password">Password</label><br/>
+               <input type="password" id="password" size='30'><br/><br/>
+
+        <div class="buttons">
+               <input type="submit" id="logincommit" value="Login" class="loginbutton">
+               <input type="reset" id="loginreset" value="Cancel" class="loginbutton">
+        </div><br/>
+               <span class="forgot"><a href="http://www.google.com" target="_blank">Forgot password?</a></span><br>
+     </fieldset>
+   </div>
+<%# end %>

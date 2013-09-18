@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LeaveSystem</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="page">
+  <div id="header">
+     <div id="bannerimg">
+       <!--<a href="http://www.rapidthink.com" target="_blank"><%= image_tag "/images/app_header.gif", :alt => "Rapidthink Software Pvt Ltd.", :class => "sys_banner" %></a>-->
+     </div>
+  </div>
+<div id="main">
+    <div id="primary">
+         <%= content_for?(:content) ? yield(:content) : yield %>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+// Place all the styles related to the accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#loginform{width:330px;margin-top:80px;margin-left: 31%;font-size:.92em; color:#224B96;}
+#loginform fieldset {border:1px solid grey; border-radius:5px; border-color: #B9CBEC; background-color: #F1F3F7; width: 100%; height:310px;margin-bottom:80px;}
+#loginform h3 {text-align:left; margin-bottom:30px; color: #224B96; margin-left:3%; }
+label{width:6em; float:left; text-align:left; display:block;margin-left:3%; font-weight:bold;}
+#loginid{margin-left:3%; height:22px;margin-top:7px;margin-bottom:5px;border:1px solid #B9CBEC; border-radius:5px;}
+#password{margin-left:3%;height:22px;margin-top:7px;margin-bottom:5px;border:1px solid #B9CBEC;border-radius:5px;}
+.loginbutton{margin-top:10px; margin-left:3%; margin-bottom:15px;width:100px;display:inline;height:28px;border: 1px solid #B9CBEC; border-radius:5px;background-color: #DAE1ED; font-size:.9em;color:7392C1; font-weight:bold; }
+.forgot{margin-left:3%;margin-bottom:2%;}
+

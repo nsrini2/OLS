@@ -1,0 +1,12 @@
+<% content for :content do %>
+ <% if content_for? :employment_details %>
+   <div id="emp_det">
+     <ul class="emp_nav">
+        <%= yield :employment_details %>
+     </ul>  
+   </div>
+ <% end %>
+<% end %>
+
+ 
+<%= render :file => 'layouts/_application' %>

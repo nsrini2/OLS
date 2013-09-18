@@ -1,0 +1,15 @@
+class EmployeesController < ApplicationController
+layout 'employee'
+
+  def new
+    @employee=Employee.new
+  end
+
+  def hub
+    @employee=Employee.new
+  end
+
+  def create
+  end
+
+end

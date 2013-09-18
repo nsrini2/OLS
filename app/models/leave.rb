@@ -1,0 +1,4 @@
+class Leave < ActiveRecord::Base
+  attr_accessible :action_remarks, :admin_comments, :approver_emp_id, :end_date, :leave_ref_id, :leave_type, :no_of_days, :request_remarks, :requester_emp_id, :start_date, :status
+belongs_to :employee
+end

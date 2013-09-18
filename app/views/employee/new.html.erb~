@@ -1,0 +1,10 @@
+<% content_for(:page_title, "Create a new emplyee") %>
+<% content_for :emp_sel do %>
+<div id="emp_det">
+     <ul class="emp_nav">
+         <%= content_tag('li',link_to("Employment Details",""),:class=>yield(:emp_tab))%>
+         <%= content_tag('li',link_to("Personal Details",""),:class=>yield(:emp_tab))%>
+         <%= content_tag('li',link_to("Initial Leave Credits",""),:class=>yield(:emp_tab))%>
+     <ul>
+</div>	
+<% end %>

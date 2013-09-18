@@ -1,0 +1,19 @@
+<% content_for :content do -%>
+<div id="outer">
+<div class="left_col">
+      <div id="emp_home">
+         <%= yield :emp_home %>
+     </div>
+</div>
+
+<div class="right_col">
+  <% if content_for? :emp_sel %>
+      <%= yield :emp_sel %>
+  <% end %>
+</div>
+
+</div>
+
+<% end %>
+
+<%= render :file => 'layouts/_application' %>

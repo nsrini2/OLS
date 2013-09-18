@@ -1,0 +1,24 @@
+class CreateEmployees < ActiveRecord::Migration
+  def change
+    create_table :employees do |t|
+      t.string :LastName
+      t.string :FirstName
+      t.date :DOB
+      t.integer :Age
+      t.date :DOJ
+      t.integer :EmpId
+      t.string :Desgination
+      t.string :ManagerName
+      t.integer :ManagerEmpId
+      t.string :Address
+      t.integer :MobNo
+      t.integer :TelNo
+      t.string :PANNo
+      t.string :EmailIdOff
+      t.string :EmailIdPers
+      t.string :Roles
+
+      t.timestamps
+    end
+  end
+end
