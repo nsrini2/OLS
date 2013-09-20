@@ -1,10 +1,106 @@
 <% content_for(:page_title, "Create a new employee") %>
 <% content_for :emp_sel do %>
 <div id="emp_det">
+<%= form_for @employee, :url => employee_path do |f| -%>
+<section>
+<h5>Employment Details</h5>
+
+  <label for="employee_id">Emp Id</label>
+  <%= f.text_field :emp_id, :size=>'20' %><br/><br/>
+
+  <label for="employee_designation">Designation</label>
+  <%= f.text_field :designation, :size=>'20' %><br/><br/>
+
+  <label for="employee_doj">Date of joining</label>
+  <%= f.date_select :doj, :default => Date.today, :order => [:day, :month, :year], :start_year => 1900 %><br/><br/>
+
+  <label for="manager_name">Manager Name</label>
+  <%= f.text_field :manager_name, :size=>'20' %><br/><br/>
+
+
+  <label for="manager_emp_id">Manager Emp Id</label>
+  <%= f.text_field :manager_emp_id, :size=>'20' %><br/><br/>
+
+  <label for="off_email_id">RapidThink Email Id</label>
+  <%= f.text_field :off_email_id, :size=>'20', :maxlength =>'100' %><br/><br/>
+
+  <% 
+      @roles=[]
+      @roles.push(['None',0])
+      @roles.push(['Admin',1])
+      @roles.push(['Leaves Approver',2])
+  %>
+
+
+  <label for="roles">Roles</label>
+   <%= f.select(:roles, @roles, {}, :multiple => "multiple", :selected => @roles[0][0])  %><br/><br/>
+  
+</section>
+
+
+<section>
+<h5>Initial Leave Balances</h5>
+  <label for="CL">Casual Leave</label>
+  <%= f.text_field :emp_id, :size=>'20' %><br/><br/>
+
+  <label for="SL">Sick Leave</label>
+  <%= f.text_field :emp_id, :size=>'20' %><br/><br/>
+
+  <label for="EL">Earned Leave</label>
+  <%= f.text_field :emp_id, :size=>'20' %><br/><br/>
+
+  <label for="OH">Optional Holidays</label>
+  <%= f.text_field :emp_id, :size=>'20' %><br/><br/>
+</section>
+
+<section>
+<h5>Personal Details</h5>
+
+  <label for="employee_last_name">Last Name</label>
+  <%= f.text_field :last_name, :size=>'20' %><br/><br/>
+
+  <label for="employee_first_name">First Name</label>
+  <%= f.text_field :first_name, :size=>'20' %><br/><br/>
+
+  <label for="employee_dob">Date of birth</label>
+  <%= f.date_select :dob, :default => Date.today, :order => [:day, :month, :year], :start_year => 1900 %><br/><br/>
+
+  <label for="employee_age">Age at joining</label>
+  <%= f.text_field :age, :size=>'20' %><br/><br/>
+
+  <label for="employee_address">Address</label>
+  <%= f.text_area :address, :cols => 20, :rows => 5 %><br/><br/>
+
+ 
+  <label for="employee_mobile">Mobile No</label>
+  <%= f.text_field :mob_no, :size=>'20' %><br/><br/>
+
+  <label for="employee_phone">Phone No</label>
+  <%= f.text_field :phone_no, :size=>'20' %><br/><br/>
+
+
+  <label for="employee_pan">PAN No</label>
+  <%= f.text_field :pan_no, :size=>'20' %><br/><br/>
+
+  <label for="pers_email_id">Personal Email Id</label>
+  <%= f.text_field :pers_email_id, :size=>'20', :maxlength=>'100' %><br/><br/>
+
+</section>
+
+<!--
      <ul class="emp_nav">
-         <%= content_tag('li',link_to("Employment Details",""),:class=>yield(:emp_tab))%>
-         <%= content_tag('li',link_to("Personal Details",""),:class=>yield(:emp_tab))%>
-         <%= content_tag('li',link_to("Initial Leave Credits",""),:class=>yield(:emp_tab))%>
+         <%= content_tag('li',link_to("Employment Details",emp_details_employee_path),:class=>yield(:emp_tab))%>
+         <%= content_tag('li',link_to("Personal Details","http://www.google.com"),:class=>yield(:pers_tab))%>
+         <%= content_tag('li',link_to("Initial Leave Credits","http://www.google.com"),:class=>yield(:ilc_tab))%>
      <ul>
-</div>	
+-->
+
+        <div class="buttons">
+		<input type="submit" name="commit" value="Create Employee" class="button_large" tabindex="8">
+		<input type="reset" name="cancel" value="Cancel" class="button_large" tabindex="9">
+	</div>
+
+</div>
+     
+<% end %>
 <% end %>

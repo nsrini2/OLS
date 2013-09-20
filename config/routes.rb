@@ -13,6 +13,8 @@ resource :employee, :controller => "employee" do
     member do
         get :new
         get :leave_balances
+        get :emp_details
+        get :show
    end
 end
 

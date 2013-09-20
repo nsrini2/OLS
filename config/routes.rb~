@@ -6,10 +6,14 @@ resources :accounts, :controller => "accounts" do
 end
 
 resource :employee, :controller => "employee" do
-    member do
+   collection do
         get :hub
+   end
+ 
+    member do
         get :new
         get :leave_balances
+        get :emp_details
    end
 end
 

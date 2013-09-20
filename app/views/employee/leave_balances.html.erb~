@@ -3,35 +3,41 @@
 <div id="emp_leaves">
      <span id="emp_lb">Leave balances as on today - ***today.date*** for XXX YYYY</span>
      <table id="emp_det_table" border="1">
+      <thead>
         <tr>
-         <th>Leave Type</td>
+         <th>Type</td>
          <th>Count</th>
         </tr>
+       </thead>
+       <tbody>
         <tr>
-         <td>EL: </td>
+         <td>Earned Leaves: </td>
          <td>100</td>
         </tr>
        <tr>
-         <td>CL: </td>
+         <td>Casual Leaves: </td>
          <td>200</td>
         </tr>
         <tr>
-         <td>SL: </td>
+         <td>Sick Leaves: </td>
          <td>500</td>
         </tr>
          <tr>
          <td>Optional Holidays: </td>
          <td>200</td>
         </tr>
+       </tbody>
+       <tfoot>
         <tr>
          <td>Total: </td>
          <td>900</td>
         </tr>
+       </tfoot>
       </table>
 <div class="disclaimer">
-     <span>Disclaimer:</span><br/>
-     **All untaken sick and casual leaves will be lapsed on 31 Mar of the following year.<br/>
-     **Earned leaves will be carried forward into the next years leave credits.
+     <span>Note:</span><br/>
+     **All unused 'sick' and 'casual' leaves will be lapsed on the last day (31 Dec) of the current year.<br/>
+     **All unused 'earned' leaves will automatically be carried forward into the next years leave credits.
 <div>
 </div>
 <% end %>
