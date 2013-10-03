@@ -1,0 +1,44 @@
+<% content_for(:page_title, "Check my leave balances") %>
+<% content_for :emp_sel do %>
+<div id="emp_leaves">
+     <h4>Leave balances as on today -<%=Date.today.strftime('%a')-%>, <%=Date.today.strftime('%d-%b-%Y')-%>- for XXX YYYY</h4>
+     <table id="emp_det_table" border="1">
+      <thead>
+        <tr>
+         <th>Type</td>
+         <th>Count</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>Earned Leaves</td>
+         <td>100</td>
+        </tr>
+       <tr>
+         <td>Casual Leaves</td>
+         <td>200</td>
+        </tr>
+        <tr>
+         <td>Sick Leaves</td>
+         <td>500</td>
+        </tr>
+         <tr>
+         <td>Optional Holidays</td>
+         <td>200</td>
+        </tr>
+       </tbody>
+       <tfoot>
+        <tr>
+         <td>Total</td>
+         <td>900</td>
+        </tr>
+       </tfoot>
+      </table>
+<div class="disclaimer">
+     <span>Note:</span><br/>
+     **All unused 'sick' and 'casual' leaves will be lapsed at the end of (31 Mar) current leave year.<br/>
+     **All unused 'earned' leaves will be carried forward into next years leave credits.<br/>
+<div>
+</div>
+<% end %>
+ 

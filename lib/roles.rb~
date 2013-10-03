@@ -28,5 +28,9 @@ def self.find(role_id)
    @@role_id_map[role_id]
 end
 
+def self.find_all(*role_ids)
+   role_ids.collect{|x| @@role_id_map[x]}
+end
+
 
 end

@@ -1,0 +1,18 @@
+           login_account        /account/:id/login(.:format)        account#login
+           account_index GET    /account(.:format)                  account#index
+                         POST   /account(.:format)                  account#create
+             new_account GET    /account/new(.:format)              account#new
+            edit_account GET    /account/:id/edit(.:format)         account#edit
+                 account GET    /account/:id(.:format)              account#show
+                         PUT    /account/:id(.:format)              account#update
+                         DELETE /account/:id(.:format)              account#destroy
+               employees GET    /employees(.:format)                employees#new
+leave_balances_employees GET    /employees/leave_balances(.:format) employees#leave_balances
+   emp_details_employees GET    /employees/emp_details(.:format)    employees#emp_details
+                         GET    /employees(.:format)                employees#show
+                         POST   /employees(.:format)                employees#create
+           new_employees GET    /employees/new(.:format)            employees#new
+          edit_employees GET    /employees/edit(.:format)           employees#edit
+                         GET    /employees(.:format)                employees#show
+                         PUT    /employees(.:format)                employees#update
+                         DELETE /employees(.:format)                employees#destroy

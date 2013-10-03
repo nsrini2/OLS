@@ -12,4 +12,4 @@
  *= require_tree .
  */
 
-#header {height:90px; overflow:hidden; border:1px solid red;}
+

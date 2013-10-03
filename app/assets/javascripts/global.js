@@ -1,0 +1,61 @@
+(function($) {
+
+$(document).ready (function() {
+ 
+ $('#primary')
+ .find('#copy_addr').click(function() {
+  if ($(this).is(':checked')) {
+      $('#employee_perm_addr').val($('#employee_local_addr').val());
+      $('#employee_perm_addr').readOnly=true;
+      return;
+    }
+      $('#employee_perm_addr').readOnly=false;
+      $('#employee_perm_addr').val("");
+ }).end();
+
+ $('#primary')
+ .find('#new_employee').multipage();
+
+ $('#flash_notice, #flash_error').setup_notices();
+
+});
+
+
+$.fn.extend({
+  setup_notices: function() {
+    return this.each(function() {
+      var $this = $(this), timeout;
+      
+      var hang_time = 5000;
+      if($this.has('ul.error_messages')) {
+         hang_time = 10000;
+      }
+      
+      if ( !$this.has('ul li') ) return;
+      $this
+        .dialog({
+          dialogClass: $this.is('.notice') ? 'notice_dialog' : 'error_dialog',
+          draggable: false, bgiframe: true, width: 'auto', height: 'auto', minHeight: 0
+        })
+        .bind('mouseenter mouseleave', function(event) {
+          if ( event.type == 'mouseenter' ) clearTimeout(timeout);
+          else timeout = setTimeout(function() { $this.dialog('destroy').css('display', '').find('ul').empty(); }, 500);
+        });
+      timeout = setTimeout(function() { $this.dialog('destroy').css('display', '').find('ul').empty(); }, hang_time);
+    });
+  },
+
+copy_addr:function() {
+  var $this = $(this), timeout;
+  if ($this.attr("checked")) {
+      $('#employee_perm_addr').val($('#employee_local_addr').val());
+       $('#employee_perm_addr').readOnly=true;
+       return;
+    }
+      $('#employee_perm_addr').readOnly=false;
+      $('#employee_perm_addr').val("");
+ }
+
+});
+
+})( jQuery );

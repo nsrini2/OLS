@@ -5,15 +5,11 @@ resources :accounts, :controller => "accounts" do
   end
 end
 
-resource :employee, :controller => "employee" do
-   collection do
-        get :hub
-   end
- 
-    member do
+resources :employees, :controller => "employees" do
+   member do
         get :new
+        get :show
         get :leave_balances
-        get :emp_details
    end
 end
 

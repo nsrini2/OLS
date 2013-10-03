@@ -1,0 +1,75 @@
+class EmployeesController < ApplicationController
+include Utilities
+before_filter :find_employee, :only=>[:show]
+
+layout 'employee'
+
+
+  def new
+    @employee=Employee.new
+  end
+
+  def create
+     @employee=Employee.new
+     @employee.emp_id=params[:employee][:emp_id]
+     @employee.designation=params[:employee][:designation]
+     @employee.doj=get_date_from_hash(params[:employee],:doj)
+     @employee.manager_emp_id=params[:employee][:manager_emp_id]
+     @employee.manager_name=params[:employee][:manager_name]
+     params[:employee][:roles].delete("") 
+     if !params[:employee][:roles].empty?
+        tmproles=params[:employee][:roles]
+     else
+        tmproles=[].push(Role::None.id)
+     end
+     Rails.logger.info("The copy addr field is: #{params[:copy_addr]}")
+     @employee.roles = Role.find_all(*tmproles.map(&:to_i))
+     @employee.last_name=params[:employee][:last_name]
+     @employee.first_name=params[:employee][:first_name]
+     @employee.mob_no=params[:employee][:mob_no]
+     @employee.phone_no=params[:employee][:phone_no]
+     @employee.dob=get_date_from_hash(params[:employee],:dob)
+     @employee.gender=params[:employee][:gender]
+     @employee.age=Date.today.year-@employee.dob.year
+     @employee.local_addr=params[:employee][:local_addr]
+     @employee.perm_addr=params[:employee][:perm_addr]
+     @employee.pan_no=params[:employee][:pan_no]
+     @employee.off_email_id=params[:employee][:off_email_id]
+     @employee.pers_email_id=params[:employee][:pers_email_id]
+     if @employee.save
+         flash[:notice] = "New employee with emp id: #{@employee.emp_id} was successfully created!"
+         redirect_to employee_path(@employee)
+     else
+         flash[:errors]=@employee.errors
+          #redirect_to new_employee_path
+          render :action => "new"
+     end
+  end
+ 
+
+ 
+  def leave_balances
+  end
+
+
+  def show
+       Rails.logger.info("This employees gender is :#{@employee.gender}")
+       render :action => 'show', :layout => '/layouts/employee'
+  end
+
+
+  def edit
+  end
+   
+  def delete
+  end
+
+  def destroy
+  end
+
+  def find_employee
+      @employee=Employee.find_by_id(params[:id])
+
+  end
+
+end

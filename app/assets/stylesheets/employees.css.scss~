@@ -1,39 +1,102 @@
-// Place all the styles related to the employees controller here.
+// Place all the styles related to the Employees controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-#outer{display:table-row;}
-
-.left_col{
-    display:table-cell;
-    width: 230px;
-    height:auto;
-    border: 1px solid green;
-    font-size:1em; color:#224B96;
-}
-.right_col{
-    display:table-cell;   
-    height:auto;
-    width:680px;
-    border: 1px solid yellow;
-}
-#leave_links{margin-left:10px; margin-top:20px; margin-bottom:20px;}
-
-
-#emp_leave_links{list-style-type:none; padding-top:20px;padding-bottom:20px;margin-left:-15px;}
-#emp_det .emp_nav li{
-list-style: none; 
+#leave_links #emp_leave_links{display:inline; list-style:none; float:left; margin-left:-15px; margin-top: 30px;margin-bottom:15px;}
+#outer{border:1px solid yellow; overflow:auto; display:table-row;}
+.left_col{border:1px solid magenta; display:table-cell; vertical-align:top; width:210px;}
+.right_col{border:1px solid cyan; display:table-cell; vertical-align:top; width:710px;}
+#menu_sel{border:1px solid #BDE88F; margin:5px; overflow:hidden;}
+#menu_sel #emp_det .emp_nav li{
+    list-style: none; 
     float: left; 
     position: relative; 
     top: 1px; 
-    margin: 0 10px 0 0; 
-    /*border-bottom: 0 !important; */
-    padding: 0; 
+    margin: 0 5px 0 0; 
+    padding: 5px 5px 5px 5px;
     white-space: nowrap; 
-    border: 1px solid #C4D7DC;
-    font-weight: bold;
+    border: 2px solid #ABACB0;
+    border-radius:5px;
+  
 }
-.emp_nav li a{ float: left; padding: .5em 1em; text-decoration: none; }
 
-.emp_nav li.emp_nav-selected{background:blue;}
+#menu_sel #emp_det .emp_nav li a{
+   text-decoration:none;
+   font-size:.93em;
+   font-weight:bold;
+   padding:8px;
+   color: #566080;
+}
+
+#emp_leaves h4{text-align:center;}
+#emp_det_table{margin-top:30px;border-collapse:collapse;border: 1px solid black;}
+#emp_det_table{margin:5% 45% 5% 18%; width:65%;}
+#emp_det_table th{height:30px;background-color:#E7EBF7;}
+#emp_det_table td{height:20px;text-align:left;padding:8px; font-size:.92em; }
+.disclaimer{font-size:.9em;font-weight:bold; margin-left:7%; margin-bottom:10px;}
+.disclaimer span{text-decoration:underline;}
+
+#emp_det h4{text-align:center;margin-bottom:20px;}
+#emp_det fieldset{border:1px solid #9B9DA3; border-radius:5px;margin:5% 5% 5% 5%;}
+#emp_det label{font-size:.9em; width:210px;margin-left:15%;margin-bottom:20px;}
+#emp_det input[type="text"]{height:12px;font-size:.8em; width: 120px;}
+#emp_det #employee_dob_3i{width:40px;font-size:.9em}
+#emp_det #employee_dob_2i{width:48px;font-size:.9em}
+#emp_det #employee_dob_1i{width:53px;font-size:.9em}
+
+#emp_det #employee_doj_3i{width:40px;font-size:.9em}
+#emp_det #employee_doj_2i{width:48px;font-size:.9em}
+#emp_det #employee_doj_1i{width:53px;font-size:.9em}
+#emp_det input[type="radio"]{font-size:.9em;}
+#emp_det textarea{width:120px; height:40px; scroll:yes;font-size:.98em}
+#emp_det #employee_roles{width:120px; height:60px; font-size:.8em;}
+
+#emp_dtl_left_col{
+float:left;
+width:40%;
+position:relative;
+margin-top:5px;
+padding:5px 20px 10px 5px;
+left:5px;
+}
+
+#emp_dtl_left_col label{
+font-size:.9em;
+width:120px;
+}
+
+#emp_dtl_right_col{
+float:right;
+width:50%;
+position:relative;
+top:5px;
+padding-left:20px;
+border-left:1px solid black;
+}
+
+#emp_dtls h4{
+margin-left:10px;
+}
+
+
+#emp_dtl_right_col label{
+font-size:.9em;
+width:140px;
+float:left;
+margin-left:1px;
+}
+
+#pa, #la{
+width:110px;
+height:auto;
+float:left;
+font-size:.8em;
+position:relative;
+display:inline-block;
+clear:right;
+padding-bottom:10px;
+}
+
+#emp_dtls span{
+font-size:.9em;
+}
 

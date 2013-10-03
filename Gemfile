@@ -19,12 +19,15 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.0.4'
+gem 'jquery-ui-rails'
 
 gem 'mysql2', "~> 0.3.11"
 
 gem 'compass', '0.10.6'
 gem 'compass-960-plugin', '0.10.0'
+
+gem 'validates_timeliness', '~> 3.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

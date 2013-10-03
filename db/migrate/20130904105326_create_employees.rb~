@@ -7,10 +7,11 @@ class CreateEmployees < ActiveRecord::Migration
       t.integer :age
       t.date :doj
       t.integer :emp_id
-      t.string :desgination
+      t.string :designation
       t.string :manager_name
       t.integer :manager_emp_id
-      t.string :address
+      t.string :local_addr
+      t.string :perm_addr
       t.integer :mob_no
       t.integer :phone_no
       t.string :pan_no

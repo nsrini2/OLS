@@ -1,0 +1,37 @@
+<% content_for(:page_title, "Employee details") %>
+<% content_for :emp_sel do %>
+<div id="emp_dtls">
+<fieldset id="emp_pers_detail">
+
+<h4>Personal Details</h4>
+
+<div id="emp_dtl_left_col">
+  <label for="emp_full_name">Name</label>								
+  <span><%=@employee.first_name.capitalize%> <%=@employee.last_name.capitalize%></span><br/><br/>
+  <label for="gender">Gender</label>
+  <span><%=@employee.gender%></span><br/><br/>
+  <label for="dob">Date of birth</label>
+  <span><%=@employee.dob.strftime("%d-%b-%Y")%></span><br/><br/>
+  <label for="age">Age at joining</label>
+  <span><%=@employee.age%></span><br/><br/>
+  <label for="pan_no">PAN</label>
+  <span><%=@employee.pan_no%></span><br/><br/>
+</div>
+
+<div id="emp_dtl_right_col">
+  <label for="local_addr">Local Address</label>								
+  <div id="la"><%=@employee.local_addr%></div><br/><br/>
+  <label for="perm_addr">Permanent Address</label>
+  <div id="pa"><%=@employee.perm_addr%></div><br/><br/>
+  <label for="mob_no">Mobile No</label>
+  <span><%=@employee.mob_no%></span><br/><br/>
+  <label for="age">Phone No</label>
+  <span><%=@employee.phone_no%></span><br/><br/>
+  <label for="pers_email">Personal Email</label>
+  <span><%=@employee.pers_email_id%></span><br/><br/>
+</div>
+
+
+
+</div>
+<% end %>

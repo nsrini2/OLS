@@ -1,0 +1,20 @@
+class CreateLeaves < ActiveRecord::Migration
+  def change
+    create_table :leaves do |t|
+      t.string :ref_id
+      t.integer :emp_id
+      t.string :type
+      t.date :start_date
+      t.date :end_date
+      t.integer :no_of_days
+      t.text :request_remarks
+      t.date :request_date
+      t.integer :approver_emp_id
+      t.string :status
+      t.text :action_remarks
+      t.text :admin_comments
+
+      t.timestamps
+    end
+  end
+end

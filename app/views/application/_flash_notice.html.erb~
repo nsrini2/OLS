@@ -1,0 +1,4 @@
+<% flash[:notices].each do |attr,msg| %>
+   <li><%= msg %></li>
+<% end %>
+<% flash[:notices]=nil %>

@@ -1,18 +1,18 @@
-         login_accounts GET    /accounts/login(.:format)          accounts#login
-               accounts GET    /accounts(.:format)                accounts#index
-                        POST   /accounts(.:format)                accounts#create
-            new_account GET    /accounts/new(.:format)            accounts#new
-           edit_account GET    /accounts/:id/edit(.:format)       accounts#edit
-                account GET    /accounts/:id(.:format)            accounts#show
-                        PUT    /accounts/:id(.:format)            accounts#update
-                        DELETE /accounts/:id(.:format)            accounts#destroy
-           hub_employee GET    /employee/hub(.:format)            employee#hub
-               employee GET    /employee(.:format)                employee#new
-leave_balances_employee GET    /employee/leave_balances(.:format) employee#leave_balances
-   emp_details_employee GET    /employee/emp_details(.:format)    employee#emp_details
-                        POST   /employee(.:format)                employee#create
-           new_employee GET    /employee/new(.:format)            employee#new
-          edit_employee GET    /employee/edit(.:format)           employee#edit
-                        GET    /employee(.:format)                employee#show
-                        PUT    /employee(.:format)                employee#update
-                        DELETE /employee(.:format)                employee#destroy
+         login_accounts GET    /accounts/login(.:format)               accounts#login
+               accounts GET    /accounts(.:format)                     accounts#index
+                        POST   /accounts(.:format)                     accounts#create
+            new_account GET    /accounts/new(.:format)                 accounts#new
+           edit_account GET    /accounts/:id/edit(.:format)            accounts#edit
+                account GET    /accounts/:id(.:format)                 accounts#show
+                        PUT    /accounts/:id(.:format)                 accounts#update
+                        DELETE /accounts/:id(.:format)                 accounts#destroy
+               employee GET    /employees/:id(.:format)                employees#new
+                        GET    /employees/:id(.:format)                employees#show
+leave_balances_employee GET    /employees/:id/leave_balances(.:format) employees#leave_balances
+              employees GET    /employees(.:format)                    employees#index
+                        POST   /employees(.:format)                    employees#create
+           new_employee GET    /employees/new(.:format)                employees#new
+          edit_employee GET    /employees/:id/edit(.:format)           employees#edit
+                        GET    /employees/:id(.:format)                employees#show
+                        PUT    /employees/:id(.:format)                employees#update
+                        DELETE /employees/:id(.:format)                employees#destroy
