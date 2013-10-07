@@ -1,13 +1,18 @@
+require 'will_paginate/array'
 class EmployeesController < ApplicationController
 include Utilities
 before_filter :find_employee, :only=>[:show]
 
 layout 'employee'
 
-
-  def new
+ def new
     @employee=Employee.new
-  end
+ end
+
+ def index
+     #@employees=Employee.all.paginate(:page => params[:page], :per_page => 5)
+     @employees=Employee.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+ end
 
   def create
      @employee=Employee.new
@@ -65,11 +70,6 @@ layout 'employee'
   end
 
   def destroy
-  end
-
-  def find_employee
-      @employee=Employee.find_by_id(params[:id])
-
   end
 
 end

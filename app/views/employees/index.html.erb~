@@ -1,0 +1,14 @@
+<% content_for(:page_title, "View Employees") -%>
+<% content_for :emp_sel do %>
+<div id="rt_emps">
+<h4>RapidThink Employees</h4>
+<div id="emp_search">
+<%= form_for @employees, :url => employees_path, :method => 'get' do |f| %> 
+    <%= f.text_field :search %>
+    <input type="submit" value="Search"> 
+<% end %>
+</div>
+<%= render "shared/employees" %>
+<%= will_paginate @employees %>
+</div>
+<% end %>

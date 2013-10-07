@@ -21,6 +21,7 @@ validates_presence_of :pan_no, :message => "Employee's PAN NO cannot be blank"
 validates_presence_of :pers_email_id, :message => "Employee's personal email id cannot be blank"
 validates_presence_of :phone_no, :message => "Employee's permanent phone no cannot be blank"
 validates_presence_of :roles, :message => "Employee roles cannot be blank"
+validates_presence_of :gender, :message => "Employee gender cannot be blank"
 
 validates_uniqueness_of :emp_id, :message => "Employee id has to be unique, this emp id already exists!"
 validates_uniqueness_of :mob_no, :message => "Employee mobile no has to be unique"
@@ -53,5 +54,19 @@ validates_format_of :pers_email_id,
 has_many :leaves
 has_many :subordinates, :class_name => "Employee", :foreign_key => "manager_emp_id"
 belongs_to :manager, :class_name => "Employee"
+
+def self.search(search)
+   if search
+    if search.is_i?
+      where('emp_id = ?', "#{search.to_i}")
+    elsif search.is_a?(String)
+       where('last_name LIKE ? or first_name LIKE ? or designation LIKE ?', "%#{search}%" , "%#{search}%", "%#{search}%")
+    end
+   else
+       scoped
+   end
+  end
+end
+       
 
 end

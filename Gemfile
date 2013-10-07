@@ -23,6 +23,7 @@ gem 'jquery-rails', '~> 3.0.4'
 gem 'jquery-ui-rails'
 
 gem 'mysql2', "~> 0.3.11"
+gem 'will_paginate'
 
 gem 'compass', '0.10.6'
 gem 'compass-960-plugin', '0.10.0'

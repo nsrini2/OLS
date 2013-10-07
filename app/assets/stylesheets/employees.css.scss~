@@ -46,9 +46,27 @@
 #emp_det #employee_doj_3i{width:40px;font-size:.9em}
 #emp_det #employee_doj_2i{width:48px;font-size:.9em}
 #emp_det #employee_doj_1i{width:53px;font-size:.9em}
-#emp_det input[type="radio"]{font-size:.9em;}
 #emp_det textarea{width:120px; height:40px; scroll:yes;font-size:.98em}
 #emp_det #employee_roles{width:120px; height:60px; font-size:.8em;}
+
+
+#emp_det input[type="radio"]{width:10px; height:10px;float:left; clear:none;}
+
+#emp_det #emp_gender_male{
+display:inline;
+position:relative;
+font-size:.8em;
+width:30px;
+margin-left:2px;
+}
+
+#emp_det #emp_gender_female{
+display:inline;
+position:relative;
+font-size:.8em;
+width:30px;
+margin-left:2px;
+}
 
 #emp_dtl_left_col{
 float:left;
@@ -61,7 +79,7 @@ left:5px;
 
 #emp_dtl_left_col label{
 font-size:.9em;
-width:120px;
+width:100px;
 }
 
 #emp_dtl_right_col{
@@ -74,13 +92,13 @@ border-left:1px solid black;
 }
 
 #emp_dtls h4{
-margin-left:10px;
+margin-left:15px;
 }
 
 
 #emp_dtl_right_col label{
 font-size:.9em;
-width:140px;
+width:130px;
 float:left;
 margin-left:1px;
 }
@@ -89,7 +107,7 @@ margin-left:1px;
 width:110px;
 height:auto;
 float:left;
-font-size:.8em;
+font-size:.88em;
 position:relative;
 display:inline-block;
 clear:right;
@@ -99,4 +117,79 @@ padding-bottom:10px;
 #emp_dtls span{
 font-size:.9em;
 }
+
+#pers{
+padding-bottom:20px;
+border-bottom:2px grey dashed;
+overflow:hidden;
+}
+
+
+#emp_dtl_single_col{
+float:left;
+width:100%;
+position:relative;
+margin-top:5px;
+padding:5px 20px 10px 5px;
+left:5px;
+}
+
+#emp_dtl_single_col label{
+font-size:.9em;
+width:230px;
+float:left;
+margin-left:1px;
+}
+
+
+#prof{
+padding-bottom:20px;
+border-bottom:2px grey dashed;
+overflow:hidden;
+}
+
+#ilc{
+padding-bottom:20px;
+border-bottom:2px grey dashed;
+overflow:hidden;
+}
+
+#rt_emps h4{
+margin-left:15px;
+}
+
+#rt_emps table{
+margin-left:15px;
+width:95%;
+}
+
+#rt_employees, td, th{
+border:1px solid grey;
+border-collapse:collapse;
+height:30px;
+text-align:center;
+}
+
+#emp_search{
+width:300px;
+margin-left:20%;
+border:1px solid red;
+padding:20px 10px 20px 10px;
+margin-bottom:10px;
+}
+
+#emp_search input[type="text"]{
+width:150px;
+height:20px;
+margin-left:20%;
+}
+
+#emp_search input[type="submit"]{
+width:60px;
+height:30px;
+margin-left:15px;
+}
+
+
+
 

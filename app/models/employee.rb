@@ -55,4 +55,17 @@ has_many :leaves
 has_many :subordinates, :class_name => "Employee", :foreign_key => "manager_emp_id"
 belongs_to :manager, :class_name => "Employee"
 
+def self.search(search)
+   if search
+    if search.is_i?
+      where('emp_id = ?', "#{search.to_i}")
+    elsif search.is_a?(String)
+       where('last_name LIKE ? or first_name LIKE ? or designation LIKE ?', "%#{search}%" , "%#{search}%", "%#{search}%")
+    end
+   else
+       scoped
+   end
+end
+       
+
 end

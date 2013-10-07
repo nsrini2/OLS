@@ -1,0 +1,26 @@
+<table id="rt_employees">
+    <tbody>
+         <tr>
+             <th>Emp id</th>
+             <th>Lastname</th>
+             <th>Firstname</th>
+             <th>Date of Joining</th>
+             <th>Designation</th>
+             <th>Manager</th>
+         </tr>
+     <% @employees.each do |emp| %>
+         <tr id="emp_<%=emp.emp_id%>">
+           <td><%=emp.emp_id%></td>
+           <td><%=emp.last_name%></td>
+           <td><%=emp.first_name%></td>
+           <td><%=emp.doj%></td>
+           <td><%=emp.designation%></td>
+           <td><%=emp.manager_name%></td>
+        </tr>
+     <% end %>
+   </tbody>
+</table>
+
+
+            
+ 
