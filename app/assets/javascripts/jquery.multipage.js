@@ -65,8 +65,9 @@
 			
 			// is there a legend tag for this fieldset?
 			// if so, pull it out.
+                    try{
 			page_title = settings.pages[page-1].title;
-			
+                        //alert(page);
 			if (settings.stayLinkable) { 
 				hashtag = '#' + settings.pages[page-1].id;
 				document.location.hash = hashtag;
@@ -111,6 +112,10 @@
 				$(id + '_nav .multipage_next').show();				
 
 			}
+                    }
+                      catch(err){
+                         console.warn(err);
+                    }
 			
 			$(id + ' fieldset.active input:first').focus();
 			curpage=page;

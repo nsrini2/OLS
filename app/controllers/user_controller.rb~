@@ -1,0 +1,64 @@
+class UserController < ApplicationController
+before_filter :login_required, :only => ['welcome', 'change_password', 'hidden']
+
+def signup
+    @user=User.new(params[:user])
+    if request.post?
+       if @user.save
+          session[:user]=User.authenticate(@user.login,@user.password)
+          flash[:notice]="Signup successful"
+          redirect_to :action => "welcome"
+       else
+          flash[:errors]="Signup was unsuccessful"
+      end
+   end
+end
+
+def login
+   if !request.post?
+      return
+   else
+      if session[:user]=User.authenticate(params[:user][:login],params[:user][:password])
+        redirect_to_stored
+      else
+        flash[:errors]="Login was unsuccessful"
+      end
+    end
+end
+
+def logout
+    session[:user]=nil
+    flash[:notice]="You have been logged out successfully"
+    redirect_to :action => "login"
+end
+
+def forgot_password
+    if request.post?
+       u=User.find_by_email(params[:user][:email])
+       if u and u.send_new_password
+          flash[:notice]="New password sent by email"
+          redirect_to :action => "login"
+       else
+          flash[:errors]="Could not send password on email"
+       end
+    end
+end
+
+def change_password
+    @user=session[:user]
+    if request.post?
+       @user.update_attributes(:password=>params[:user][:password], :password_confirmation=>params[:user][:password_confirmation])
+       if @user.save?
+          flash[:notice]="Password reset successful"
+       else
+          flash[:errors]=@user.errors
+       end
+    end
+end
+
+def welcome
+end
+
+def hidden
+end
+end

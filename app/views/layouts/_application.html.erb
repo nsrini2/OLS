@@ -15,7 +15,7 @@
   </div>
 <div id="main">
     <div id="primary">
-         <%= content_for?(:content) ? yield(:content) : yield %>
+      <%= content_for?(:content) ? yield(:content) : yield %>
     </div>
 </div>
 <%= render :partial => "/shared/notices" %>

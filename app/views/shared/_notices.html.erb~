@@ -7,9 +7,10 @@
  </div>
 <% end %>
 
-<% unless flash[:notices].blank? %>
+<% unless flash[:notice].blank? %>
 <div id="flash_notice" class="notice popup">
      <ul class="notice_messages">
+          BLAH BLAH
           <%= render :partial => 'application/flash_notice' %>
      </ul>
 </div>

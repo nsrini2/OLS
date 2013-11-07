@@ -2,8 +2,12 @@ require 'role_access'
 
 class Employee < ActiveRecord::Base
 include RoleAccess
-  attr_accessible :local_addr, :perm_addr, :age, :designation, :dob, :doj, :emp_id, :first_name, :last_name, :manager_emp_id, :manager_name, :mob_no, :off_email_id, :pan_no, :pers_email_id, :phone_no, :gender
-attr_protected :roles
+  attr_accessible :local_addr, :perm_addr, :age, :designation, :dob, :doj, :emp_id, :first_name, :last_name, :manager_emp_id, :manager_name, :mob_no, :off_email_id, :pan_no, :pers_email_id, :phone_no, :gender, :roles
+attr_accessible :leaves_attributes
+
+#attr_protected :roles
+
+validate :dates_cannot_be_in_the_future
 validates_presence_of :local_addr, :message => "Local address cannot be blank"
 validates_presence_of :perm_addr, :message => "Permanent address cannot be blank"
 validates_presence_of :age, :message => "Unable to calculate employee's age at joining; please enter employee dob correctly.."
@@ -17,7 +21,7 @@ validates_presence_of :manager_emp_id, :message => "Employee's manager id cannot
 validates_presence_of :manager_name, :message => "Employee's manager name cannot be blank"
 validates_presence_of :mob_no, :message => "Employee's mobile number cannot be blank"
 validates_presence_of :off_email_id, :message => "Employee's RapidThink email id cannot be blank"
-validates_presence_of :pan_no, :message => "Employee's PAN NO cannot be blank"
+validates_presence_of :pan_no, :message => "Employee's PAN number cannot be blank"
 validates_presence_of :pers_email_id, :message => "Employee's personal email id cannot be blank"
 validates_presence_of :phone_no, :message => "Employee's permanent phone no cannot be blank"
 validates_presence_of :roles, :message => "Employee roles cannot be blank"
@@ -51,9 +55,12 @@ validates_format_of :pers_email_id,
                       :message => 'Employee\' personal email id must have a valid format, e.g. a@b.com'
 
 
-has_many :leaves
+has_many :leaves, :class_name => 'Leave', :foreign_key => 'employee_id'
+has_one :user, :dependent => :destroy
 has_many :subordinates, :class_name => "Employee", :foreign_key => "manager_emp_id"
 belongs_to :manager, :class_name => "Employee"
+
+accepts_nested_attributes_for :leaves
 
 def self.search(search)
    if search
@@ -66,6 +73,14 @@ def self.search(search)
        scoped
    end
 end
-       
+
+
+def dates_cannot_be_in_the_future
+       errors.add(:doj,"Joining date cannot be in the future") if 
+       (!doj.blank? and doj > Date.today) 
+       errors.add(:dob,"Date of birth cannot be in the future") if
+       (!dob.blank? and dob > Date.today)
+end
+
 
 end

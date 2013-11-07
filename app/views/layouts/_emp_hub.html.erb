@@ -7,12 +7,17 @@
 </div>
 
 <div class="right_col">
-  <% if content_for? :emp_sel %>
-   <div id="menu_sel">
-     <%= yield :emp_sel %>
-   </div>
- <% end %>
-</div>
+  <div id="logout"><%= link_to("Logout", logout_authentication_path) %></div>
+  <div id="welcome">Welcome <%=@emp.first_name.capitalize%> </div>
+  <div id="reset"><%=link_to("Reset Password", reset_password_authentication_path) %></div>   
+
+   <% if content_for? :emp_sel %>
+    <div id="menu_sel">
+      <%= yield :emp_sel %>
+    </div>
+   <% end %>
+
+ </div>
 
 </div>
 

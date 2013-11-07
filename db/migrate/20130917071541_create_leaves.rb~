@@ -2,7 +2,7 @@ class CreateLeaves < ActiveRecord::Migration
   def change
     create_table :leaves do |t|
       t.string :ref_id
-      t.integer :emp_id
+      t.integer :requester_emp_id
       t.string :type
       t.date :start_date
       t.date :end_date

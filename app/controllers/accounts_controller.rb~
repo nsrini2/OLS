@@ -1,5 +1,7 @@
 class AccountsController < ApplicationController
 layout 'account'
       def login
+          render :page => "login"
       end
+
 end

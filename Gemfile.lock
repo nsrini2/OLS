@@ -43,6 +43,8 @@ GEM
       compass (>= 0.10.0)
     erubis (2.7.0)
     execjs (2.0.1)
+    foreigner (1.2.1)
+      activerecord (>= 3.0.0)
     haml (4.0.2)
       tilt
     hike (1.2.3)
@@ -118,6 +120,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass (= 0.10.6)
   compass-960-plugin (= 0.10.0)
+  foreigner
   jquery-rails (~> 3.0.4)
   jquery-ui-rails
   json

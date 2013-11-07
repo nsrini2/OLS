@@ -1,7 +1,7 @@
 <% content_for(:page_title, "Check my leave balances") %>
 <% content_for :emp_sel do %>
 <div id="emp_leaves">
-     <h4>Leave balances as on today -<%=Date.today.strftime('%a')-%>, <%=Date.today.strftime('%d-%b-%Y')-%>- for XXX YYYY</h4>
+     <h4>Leave balances as on today, <%=Date.today.strftime('%a')-%> <%=Date.today.strftime('%d-%b-%Y')-%>, for <%=session[:user].employee.first_name.capitalize%> <%=session[:user].employee.last_name.capitalize %></h4>
      <table id="emp_det_table" border="1">
       <thead>
         <tr>

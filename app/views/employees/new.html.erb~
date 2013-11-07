@@ -1,7 +1,8 @@
 <% content_for(:page_title, "Create a new employee") %>
 <% content_for :emp_sel do %>
+<h3>New Employee</h3>
 <div id="emp_det">
-<%=render :file=>"/shared/employee_details" %>
+<%=render "employee_details" %>
 </div>
 <% end %>
 

@@ -1,9 +1,4 @@
-<% if flash[:errors].blank? %>
-    <ul class="error_messages">
-      <h1> This is BS! </h1>
-    </ul>
-<% end %>
-<% flash[:errors].each do |attr,msg| %>
+<% flash[:errors].each do |attr,msg|%>
   <li><%= msg %></li>
 <% end %>
 <% flash[:errors]=nil %>

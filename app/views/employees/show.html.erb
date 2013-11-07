@@ -53,19 +53,19 @@
 <label for="emp_off_email">RapidThink Email:</label>
 <span><%=@employee.off_email_id%></span><br/><br/>
 </div>
-</div>
+</div>	
 
 <div id="ilc">
 <h4>Joining Leave Credits</h4>
 <div id="emp_dtl_single_col">
 <label for="CL">Casual Leaves:</label>
-<span><%#= @employee.cl %>50</span><br/><br/>
+<span><%= @employee.leaves.where("leave_type=? and admin_comments=?",'CL','Initial Credit').pluck(:no_of_days) %></span><br/><br/>
 <label for="SL">Sick Leaves:</label>
-<span><%#= @employee.sl %>80</span><br/><br/>
+<span><%= @employee.leaves.where("leave_type=? and admin_comments=?",'SL','Initial Credit').pluck(:no_of_days) %></span><br/><br/>
 <label for="EL">Earned Leaves:</label>
-<span><%#= @employee.el %>20</span><br/><br/>
+<span><%= @employee.leaves.where("leave_type=? and admin_comments=?",'EL','Initial Credit').pluck(:no_of_days) %></span><br/><br/>
 <label for="OH">Optional Holidays:</label>
-<span><%#= @employee.oh %>36</span><br/><br/>
+<span><%= @employee.leaves.where("leave_type=? and admin_comments=?",'OH','Initial Credit').pluck(:no_of_days) %></span><br/><br/>
 </div>
 </div>
 

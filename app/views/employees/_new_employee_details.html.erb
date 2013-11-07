@@ -1,0 +1,111 @@
+<%= form_for @employee, :url => employees_path, :html => {:class => "emp_form"} do |f| -%>
+
+<fieldset id="new_emp_pers_detail">
+<%content_for(:page_title, "Personal Details")%>
+<h4>Personal Details</h4>
+ 
+  <label for="employee_last_name">Last name</label>
+  <%= f.text_field :last_name, :size=>'15',:maxlength =>'100' %><br/><br/>
+
+  <label for="employee_first_name">First name</label>
+  <%= f.text_field :first_name, :size=>'15',:maxlength =>'100' %><br/><br/>
+
+  <label for="employee_dob">Date of birth</label>
+  <%= f.date_select :dob, :default => Date.today, :order => [:day, :month, :year], :use_short_month => true, :start_year => 1900, :end_year => Date.today.year %><br/><br/>
+
+  <label for="employee_gender">Gender</label>
+  <%= f.radio_button :gender, "Male" %> 
+  <label for="employee_gender_male" id="emp_gender_male">Male</label>
+  <%= f.radio_button :gender, "Female" %>
+  <label for="employee_gender_female" id="emp_gender_female">Female</label>
+
+  <br/><br/>
+
+  <label for="emp_local_addr">Local address</label>
+  <%= f.text_area :local_addr, :cols => 15, :rows => 5, :maxlength =>'500' %><br/><br/>
+
+  <label for="emp_perm_addr">Permanent address</label>
+  <%= f.text_area :perm_addr, :cols => 15, :rows => 5, :maxlength =>'500' %><br/>
+  <label for="same_as_local_addr">Same as local addr</label>
+  <input id="copy_addr" name="copy_addr" type="checkbox" value="0"/><br><br/>
+
+ 
+  <label for="employee_mobile">Mobile no</label>
+  <%= f.text_field :mob_no, :size=>'15' %><br/><br/>
+
+  <label for="employee_phone">Phone no</label>
+  <%= f.text_field :phone_no, :size=>'15' %><br/><br/>
+
+
+  <label for="employee_pan">PAN no</label>
+  <%= f.text_field :pan_no, :size=>'15' %><br/><br/>
+
+  <label for="pers_email_id">Personal email</label>
+  <%= f.text_field :pers_email_id, :size=>'15', :maxlength=>'100' %><br/><br/>
+
+</fieldset>
+
+<fieldset id="new_emp_emp_detail">
+<%content_for(:page_title, "Employment Details")%>
+<h4>Employment Details</h4>
+
+  <label for="employee_id">Emp id</label>
+  <%= f.text_field :emp_id, :size=>'15' %><br/><br/>
+  
+  <label for="employee_designation">Designation</label>
+  <%= f.text_field :designation, :size=>'15',:maxlength =>'100' %><br/><br/>
+
+  <label for="employee_doj">Date of joining</label>
+  <%= f.date_select :doj, :default => Date.today, :order => [:day, :month, :year], :use_short_month => true,:start_year => 1900, :end_year => Date.today.year %><br/><br/>
+
+  <label for="manager_emp_id">Manager's emp id</label>
+  <%= f.text_field :manager_emp_id, :size=>'15' %><br/><br/>
+
+  <label for="manager_name">Manager's name</label>
+  <%= f.text_field :manager_name, :size=>'15',:maxlength =>'100' %><br/><br/>
+
+
+  <label for="off_email_id">RapidThink email</label>
+  <%= f.text_field :off_email_id, :size=>'15', :maxlength =>'100' %><br/><br/>
+
+  <% 
+      @roles=[]
+      @roles.push(['None',0])
+      @roles.push(['Admin',1])
+      @roles.push(['Leave Approver',2])
+
+  %>
+
+   <label for="roles">Roles</label>
+   <%= f.select :roles, options_for_select(@roles, :selected => @roles[0][1], :disabled => @roles[0][1]), {}, {:multiple => true}  %><br/><br/>
+  
+</fieldset>
+
+
+<fieldset id="new_emp_leave_detail">
+<h4>Joining Leave Credits</h4>
+<%=f.fields_for :leaves do |l| %>
+
+<%content_for(:page_title, "Leave Details")%>
+
+  <!--<label for="CL">Casual Leaves</label>-->
+  <%=l.select :leave_type, options_for_select([['CL','CL'],['EL','EL'],['SL','SL'],['OH','OH']]) %>
+  <%=l.text_field :no_of_days, :size=>'15' %> days <br/><br/>
+  <%=l.hidden_field :start_date, :value => Date.today%>
+  <%=l.hidden_field :end_date, :value => Date.today%>
+  <%=l.hidden_field :admin_comments, :value => 'Initial Credit'%>
+  <%=l.hidden_field :action, :value => 'Credit'%>
+  <%=l.hidden_field :requester_emp_id, :value => @employee.emp_id %>
+
+
+<%end%>
+
+<div class="buttons">
+	<input type="submit" name="commit" value="Create Employee" class="button_large" tabindex="8"> 
+	<!--<input type="reset" name="cancel" value="Cancel" class="button_large" tabindex="9">-->
+</div>
+
+</fieldset>
+
+
+<% end %>

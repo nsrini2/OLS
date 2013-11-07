@@ -1,0 +1,19 @@
+<% content_for(:page_title, "Login to OLS")%>
+<%= form_for :user do |f|-%>
+   <div id="loginform">
+     <fieldset>
+        <h3> Sign in </h3>
+               <label for="loginid">Username</label><br/>
+               <%= f.text_field :login, :size => '30'%><br/><br/>
+
+               <label for="password">Password</label><br/>
+               <%= f.password_field :password, :size => '30'%><br/><br/>
+
+        <div class="buttons">
+               <input type="submit" id="logincommit" value="Login" class="loginbutton">
+               <input type="reset" id="loginreset" value="Cancel" class="loginbutton">
+        </div><br/>
+               <span class="forgot"><%=link_to("Forgot password?", :controller => "authentication", :action => "forgot_password")%></span><br>
+     </fieldset>
+   </div>
+<% end %>

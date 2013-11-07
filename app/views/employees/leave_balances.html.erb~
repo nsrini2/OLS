@@ -1,7 +1,7 @@
 <% content_for(:page_title, "Check my leave balances") %>
 <% content_for :emp_sel do %>
 <div id="emp_leaves">
-     <h4>Leave balances as on today -<%=Date.today.strftime('%a')-%>, <%=Date.today.strftime('%d-%b-%Y')-%>- for XXX YYYY</h4>
+     <h4>Leave balances as on today, <%=Date.today.strftime('%a')-%> <%=Date.today.strftime('%d-%b-%Y')-%>, for <%=session[:user].employee.first_name%> <%=session[:user].employee.last_name %></h4>
      <table id="emp_det_table" border="1">
       <thead>
         <tr>
@@ -11,19 +11,19 @@
        </thead>
        <tbody>
         <tr>
-         <td>Earned Leaves</td>
+         <td>Earned Leave</td>
          <td>100</td>
         </tr>
        <tr>
-         <td>Casual Leaves</td>
+         <td>Casual Leave</td>
          <td>200</td>
         </tr>
         <tr>
-         <td>Sick Leaves</td>
+         <td>Sick Leave</td>
          <td>500</td>
         </tr>
          <tr>
-         <td>Optional Holidays</td>
+         <td>Optional Holiday</td>
          <td>200</td>
         </tr>
        </tbody>

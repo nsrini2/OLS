@@ -1,14 +1,20 @@
 LeaveSystem::Application.routes.draw do
-resources :accounts, :controller => "accounts" do
-  collection do
-     get :login
+resource :authentication, :controller => "authentication" do
+  member do
+     match :login
+     get :logout
+     match :set_password
+     match :forgot_password
+     match :reset_password
   end
 end
 
 resources :employees, :controller => "employees" do
    member do
+       put :update
        get :leave_balances
    end
+   resources :leaves
 end
 
 #match '/' => 'employees#hub', :as => :home

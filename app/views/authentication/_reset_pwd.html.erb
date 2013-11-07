@@ -1,0 +1,22 @@
+ <%= form_for :user do |f|-%>
+   <div id="pwdresetform">
+     <fieldset>
+               <label for="loginid">Username</label><br/>
+               <%= f.text_field :login, :size => '30'%><br/><br/>
+
+               <label for="password">Old Password</label><br/>
+               <%= f.password_field :password, :size => '30'%><br/><br/>
+
+               <label for="password">New Password</label><br/>
+               <%= f.password_field :new_password, :size => '30'%><br/><br/>
+ 
+               <label for="password">Confirm New Password</label><br/>
+               <%= f.password_field :new_password_confirmation, :size => '30'%><br/><br/>
+
+        <div class="buttons">
+               <input type="submit" id="logincommit" value="Reset" class="loginbutton">
+               <input type="reset" id="loginreset" value="Cancel" class="loginbutton">
+        </div><br/>
+      </fieldset>
+   </div>
+ <% end %>

@@ -1,0 +1,10 @@
+<%content_for(:page_title, "Leave Details")%>
+<h4>Joining Leave Credits</h4>
+  <!--<label for="CL">Casual Leaves</label>-->
+  <%= l.select :leave_type, options_for_select([['CL',1],['EL',2],['SL',3],['OH',4]]) %>
+  <%= l.text_field :no_of_days, :size=>'15' %> days <br/><br/>
+  <%=l.hidden_field :start_date, :value => Date.today%>
+  <%=l.hidden_field :end_date, :value => Date.today%>
+  <%=l.hidden_field :admin_comments, :value => 'Initial Credit'%>
+  <%=l.hidden_field :action, :value => 'Credit'%>
+

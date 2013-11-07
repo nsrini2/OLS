@@ -3,8 +3,8 @@
 <div id="rt_emps">
 <h4>RapidThink Employees</h4>
 <div id="emp_search">
-<%= form_for @employees, :url => employees_path, :method => 'get' do |f| %> 
-    <%= f.text_field :search %>
+<%= form_tag employees_path, :method => 'get' do %> 
+    <%= text_field_tag :search, params[:search] %>
     <input type="submit" value="Search"> 
 <% end %>
 </div>

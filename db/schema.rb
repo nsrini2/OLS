@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130917071541) do
+ActiveRecord::Schema.define(:version => 20131101080907) do
 
   create_table "employees", :force => true do |t|
     t.string   "last_name"
@@ -36,20 +36,31 @@ ActiveRecord::Schema.define(:version => 20130917071541) do
   end
 
   create_table "leaves", :force => true do |t|
+    t.integer  "employee_id"
     t.string   "ref_id"
     t.integer  "requester_emp_id"
-    t.string   "type"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "no_of_days"
     t.text     "request_remarks"
     t.date     "request_date"
     t.integer  "approver_emp_id"
-    t.string   "status"
+    t.string   "action"
     t.text     "action_remarks"
     t.text     "admin_comments"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "leave_type"
+  end
+
+  create_table "users", :force => true do |t|
+    t.integer  "login"
+    t.string   "hashed_password"
+    t.string   "email"
+    t.string   "salt"
+    t.integer  "employee_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

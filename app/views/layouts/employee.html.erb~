@@ -3,7 +3,5 @@
        <%= yield %>
    </div>
 <% end %>
-<%= render :partial => "emp_home" %>
-
-<%= render :file => 'layouts/_emp_home' %>
+<%= render :partial => "emp_home"%>
     

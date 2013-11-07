@@ -1,0 +1,7 @@
+<% content_for(:page_title, "Edit Employee details") %>
+<% content_for :emp_sel do %>
+<h3>Edit Employee</h3>
+<div id="emp_det">
+<%=render "employee_details" %>
+</div>
+<% end %>

@@ -1,18 +1,17 @@
-<%#= content_for(:page_heading, "Leave details for "  + @employee.last_name) -%>
-<% content_for(:page_heading, "Leave details") -%>
+<% content_for(:page_heading, "Employee Home") -%>
 <% content_for :emp_home do -%>
 <div id="leave_links">
  <ul id="emp_leave_links">
-  <%#= content_tag('li',link_to("My Balances",leave_balances_employee_path))%><br/><br/>
+  <%#= content_tag('li',link_to("My Balances",leave_balances_employee_path(current_user)))%><br/><br/>
   <%= content_tag('li',link_to("My Leaves","http://www.google.com"),:class => yield(:my_leave_history_selected))%><br/><br/>
   <%= content_tag('li',link_to("My Approvals","http://www.google.com"),:class => yield(:my_leave_approval_history_selected))%><br/><br/>
   <%= content_tag('li',link_to("New Request","http://www.google.com"),:class => yield(:new_leave_request_selected))%><br/><br/>
   <%= content_tag('li',link_to("Holiday List","http://www.google.com"),:class => yield(:current_holiday_list_selected))%><br/><br/>
   <%= content_tag('li',link_to("Modify Holidays","http://www.google.com"),:class => yield(:current_holiday_list_selected))%><br/><br/>
+  <%= content_tag('li',link_to("RapidThink Employees",employees_path))%><br/><br/>
   <%= content_tag('li',link_to("New Employee",new_employee_path))%><br/><br/>
-  <%#= content_tag('li',link_to("Edit Employee",edit_employee_path))%><br/><br/>
-</ul>
+ </ul>
 </div>
 <% end %>
 
-<%= render :file => 'layouts/_emp_hub' %>
+<%= render :file => 'layouts/_emp_hub', :locals => {:emp => @emp} %>

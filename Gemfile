@@ -29,6 +29,7 @@ gem 'compass', '0.10.6'
 gem 'compass-960-plugin', '0.10.0'
 
 gem 'validates_timeliness', '~> 3.0'
+gem 'foreigner'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

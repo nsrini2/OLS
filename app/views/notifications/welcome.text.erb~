@@ -1,0 +1,9 @@
+--------------------------------------------------------------------------------
+<%=@greeting%>,
+
+Your username for all RT internal applications is your employee id: <%=@login%>
+
+Click on the below link to set you password:
+<%=link_from_mail("Click here to set your password", @password_set_link)%>
+
+---------------------------------------------------------------------------------

@@ -1,6 +1,7 @@
 class CreateLeaves < ActiveRecord::Migration
   def change
     create_table :leaves do |t|
+      t.belongs_to :employee
       t.string :ref_id
       t.integer :requester_emp_id
       t.string :type
@@ -10,7 +11,7 @@ class CreateLeaves < ActiveRecord::Migration
       t.text :request_remarks
       t.date :request_date
       t.integer :approver_emp_id
-      t.string :status
+      t.string :action
       t.text :action_remarks
       t.text :admin_comments
 

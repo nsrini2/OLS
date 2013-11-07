@@ -14,7 +14,7 @@ $(document).ready (function() {
  }).end();
 
  $('#primary')
- .find('#new_employee').multipage();
+ .find('.emp_form').multipage();
 
  $('#flash_notice, #flash_error').setup_notices();
 
