@@ -4,8 +4,8 @@
  <ul id="emp_leave_links">
   <%#= content_tag('li',link_to("My Balances",leave_balances_employee_path(current_user)))%><br/><br/>
   <%= content_tag('li',link_to("My Leaves","http://www.google.com"),:class => yield(:my_leave_history_selected))%><br/><br/>
-  <%= content_tag('li',link_to("My Approvals","http://www.google.com"),:class => yield(:my_leave_approval_history_selected))%><br/><br/>
-  <%= content_tag('li',link_to("New Request",new_employee_leafe_path(@uid)))%><br/><br/>
+  <%= content_tag('li',link_to("My Approvals",my_leave_approvals_employee_path(current_user)))%><br/><br/>
+  <%= content_tag('li',link_to("New Leave Request",new_employee_leafe_path(@uid)))%><br/><br/>
   <%= content_tag('li',link_to("Holiday List","http://www.google.com"),:class => yield(:current_holiday_list_selected))%><br/><br/>
   <%= content_tag('li',link_to("Modify Holidays","http://www.google.com"),:class => yield(:current_holiday_list_selected))%><br/><br/>
   <%= content_tag('li',link_to("RapidThink Employees",employees_path))%><br/><br/>

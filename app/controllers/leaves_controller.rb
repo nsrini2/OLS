@@ -35,6 +35,8 @@ def my_leave_history
 end
 
 
+
+
 def find_user_id
     @uid=current_user_id
 end

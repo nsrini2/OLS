@@ -13,6 +13,7 @@ resources :employees, :controller => "employees" do
    member do
        put :update
        get :leave_balances
+       get :my_leave_approvals
    end
 
    resources :leaves, :controller => "leaves"

@@ -30,8 +30,12 @@ def create
  end
 end
 
-def index
+def my_leave_history
 
+end
+
+def my_leave_approvals
+     @leaves=Leaves.find_by_approver_emp_id(current_emp.emp_id)
 end
 
 

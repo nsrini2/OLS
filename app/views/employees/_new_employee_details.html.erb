@@ -47,7 +47,7 @@
 
 <fieldset id="new_emp_emp_detail">
 <%content_for(:page_title, "Employment Details")%>
-<h4>Employment Details</h4>
+<h4>Professional Details</h4>
 
   <label for="employee_id">Emp id</label>
   <%= f.text_field :emp_id, :size=>'15' %><br/><br/>
@@ -95,7 +95,7 @@
   <%=l.hidden_field :end_date, :value => Date.today%>
   <%=l.hidden_field :admin_comments, :value => 'Initial Credit'%>
   <%=l.hidden_field :action, :value => 'Credit'%>
-  <%=l.hidden_field :requester_emp_id, :value => @employee.emp_id %>
+  <%=l.hidden_field :requester_emp_id%>
 
 
 <%end%>

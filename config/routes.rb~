@@ -10,12 +10,12 @@ resource :authentication, :controller => "authentication" do
 end
 
 resources :employees, :controller => "employees" do
-   resources :leaves, :controller => "leaves"
-     
    member do
        put :update
        get :leave_balances
    end
+
+   resources :leaves, :controller => "leaves"
 end
 
 #match '/' => 'employees#hub', :as => :home

@@ -14,6 +14,11 @@ $(document).ready (function() {
  }).end();
 
  $('#primary')
+ .find('#employee_emp_id').click(function() {
+   alert("Hello");
+ }).end();
+
+ $('#primary')
  .find('.emp_form').multipage();
 
  $('#flash_notice, #flash_error').setup_notices();

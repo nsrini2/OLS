@@ -11,6 +11,7 @@ forgot_password_authentication        /authentication/forgot_password(.:format) 
                                DELETE /authentication(.:format)                         authentication#destroy
                       employee PUT    /employees/:id(.:format)                          employees#update
        leave_balances_employee GET    /employees/:id/leave_balances(.:format)           employees#leave_balances
+   my_leave_approvals_employee GET    /employees/:id/my_leave_approvals(.:format)       employees#my_leave_approvals
                employee_leaves GET    /employees/:employee_id/leaves(.:format)          leaves#index
                                POST   /employees/:employee_id/leaves(.:format)          leaves#create
             new_employee_leafe GET    /employees/:employee_id/leaves/new(.:format)      leaves#new

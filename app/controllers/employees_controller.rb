@@ -61,7 +61,7 @@ before_filter :find_user_id
 
   def edit
       @employee=Employee.find(params[:id])
-      @employee.leaves.where('admin_comments like ?','Initial Credit').build
+      @employee.leaves.where('admin_comments=?','Initial Credit').build
   end
 
   def update
@@ -88,6 +88,11 @@ before_filter :find_user_id
          render :action => "edit"
      end
  end
+
+
+  def my_leave_approvals
+     @leaves=Leave.find_by_approver_emp_id(current_emp.emp_id)
+  end
    
   def delete
   end

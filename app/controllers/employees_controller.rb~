@@ -32,6 +32,7 @@ before_filter :find_user_id
      end
      @employee.roles = Role.find_all(*tmproles.map(&:to_i))
      @employee.age=@employee.doj.year-@employee.dob.year
+     @employee.requester_emp_id=@employee.emp_id
      @user.employee=@employee
      Rails.logger.info("The mob no is: #{@employee.mob_no}")
      if @employee.save && @user.save
@@ -88,6 +89,11 @@ before_filter :find_user_id
          render :action => "edit"
      end
  end
+
+
+  def my_leave_approvals
+     @leaves=Leave.find_by_approver_emp_id(current_emp.emp_id)
+  end
    
   def delete
   end

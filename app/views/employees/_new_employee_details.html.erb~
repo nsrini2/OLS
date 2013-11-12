@@ -19,7 +19,7 @@
   <%= f.radio_button :gender, "Female" %>
   <label for="employee_gender_female" id="emp_gender_female">Female</label>
 
-  <br/><br/>
+  <br/><br/><br/>
 
   <label for="emp_local_addr">Local address</label>
   <%= f.text_area :local_addr, :cols => 15, :rows => 5, :maxlength =>'500' %><br/><br/>
@@ -47,7 +47,7 @@
 
 <fieldset id="new_emp_emp_detail">
 <%content_for(:page_title, "Employment Details")%>
-<h4>Employment Details</h4>
+<h4>Professional Details</h4>
 
   <label for="employee_id">Emp id</label>
   <%= f.text_field :emp_id, :size=>'15' %><br/><br/>

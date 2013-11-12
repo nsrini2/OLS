@@ -49,7 +49,7 @@
 </fieldset>
 
 <fieldset id="new_emp_emp_detail">
-<h4>Employment Details</h4>
+<h4>Professional Details</h4>
 
   <label for="employee_id">Emp id</label>
   <%= f.text_field :emp_id, :size=>'15' %><br/><br/>
@@ -82,23 +82,6 @@
    <label for="roles">Roles</label>
    <%= f.select :roles, options_for_select(@roles, :selected => selected_roles, :disabled => @roles[0][1]), {}, {:multiple => true}  %><br/><br/>
   
-</fieldset>
-
-<fieldset id="new_emp_leave_detail">
-<h4>Joining Leave Credits</h4>
-<%=f.fields_for :leaves do |l| %>
-
-<%content_for(:page_title, "Leave Details")%>
-  <!--<label for="CL">Casual Leaves</label>-->
-   <%=l.select :leave_type, options_for_select([['CL','CL'],['EL','EL'],['SL','SL'],['OH','OH']]) %>
-  <%=l.text_field :no_of_days, :size=>'15' %> days <br/><br/>
-  <%=l.hidden_field :start_date, :value => Date.today%>
-  <%=l.hidden_field :end_date, :value => Date.today%>
-  <%=l.hidden_field :admin_comments, :value => 'Initial Credit'%>
-  <%=l.hidden_field :action, :value => 'Credit'%>
-  <%=l.hidden_field :requester_emp_id, :value => @employee.emp_id %>
-
-<%end%>
 
 <div class="buttons">
 	<input type="submit" name="commit" value="Update Employee" class="button_large" tabindex="8"> 

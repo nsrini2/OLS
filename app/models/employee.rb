@@ -60,7 +60,7 @@ has_one :user, :dependent => :destroy
 has_many :subordinates, :class_name => "Employee", :foreign_key => "manager_emp_id"
 belongs_to :manager, :class_name => "Employee"
 
-accepts_nested_attributes_for :leaves, :reject_if => lambda{|a| !a[:admin_comments].equals("Initial Credit")}
+accepts_nested_attributes_for :leaves
 
 def self.search(search)
    if search
