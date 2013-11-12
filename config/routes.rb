@@ -14,7 +14,8 @@ resources :employees, :controller => "employees" do
        put :update
        get :leave_balances
    end
-   resources :leaves
+
+   resources :leaves, :controller => "leaves"
 end
 
 #match '/' => 'employees#hub', :as => :home

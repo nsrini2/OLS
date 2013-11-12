@@ -10,6 +10,8 @@ resource :authentication, :controller => "authentication" do
 end
 
 resources :employees, :controller => "employees" do
+   resources :leaves, :controller => "leaves"
+     
    member do
        put :update
        get :leave_balances

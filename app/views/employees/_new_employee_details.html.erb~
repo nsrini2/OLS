@@ -89,7 +89,7 @@
 <%content_for(:page_title, "Leave Details")%>
 
   <!--<label for="CL">Casual Leaves</label>-->
-  <%=l.select :leave_type, options_for_select([['CL',1],['EL',2],['SL',3],['OH',4]]) %>
+  <%=l.select :leave_type, options_for_select([['CL','CL'],['EL','EL'],['SL','SL'],['OH','OH']]) %>
   <%=l.text_field :no_of_days, :size=>'15' %> days <br/><br/>
   <%=l.hidden_field :start_date, :value => Date.today%>
   <%=l.hidden_field :end_date, :value => Date.today%>

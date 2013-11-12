@@ -5,6 +5,7 @@ layout 'employee'
 
 before_filter :login_required
 before_filter :find_logged_emp
+before_filter :find_user_id
 
  def new
     @employee=Employee.new
@@ -32,7 +33,7 @@ before_filter :find_logged_emp
      @employee.roles = Role.find_all(*tmproles.map(&:to_i))
      @employee.age=@employee.doj.year-@employee.dob.year
      @user.employee=@employee
-     
+     Rails.logger.info("The mob no is: #{@employee.mob_no}")
      if @employee.save && @user.save
          flash[:notice] = "New employee with emp id: #{@employee.emp_id} was successfully created!"
          Notifications.welcome(@user).deliver
@@ -60,6 +61,7 @@ before_filter :find_logged_emp
 
   def edit
       @employee=Employee.find(params[:id])
+      @employee.leaves.where('admin_comments like ?','Initial Credit').build
   end
 
   def update
@@ -71,18 +73,19 @@ before_filter :find_logged_emp
      else
         tmproles=[].push(Role::None.id)
      end
-     @employee.update(params[:employee])
+     @employee.update_attributes(params[:employee])
      @employee.roles = Role.find_all(*tmproles.map(&:to_i))
      @employee.age=@employee.doj.year-@employee.dob.year
-
+     
      if @employee.save
+         Rails.logger.info("The updated mob no is: #{@employee.mob_no}")
          flash[:notice] = "Employee with emp id: #{@employee.emp_id} was successfully updated!"
          redirect_to employee_path(@employee)
      else
          flash[:errors]=@employee.errors
          Rails.logger.info("The errors in update are: #{@employee.errors.each{|i,j| j}}")
-          #redirect_to new_employee_path
-          render :action => "edit"
+         #redirect_to new_employee_path
+         render :action => "edit"
      end
  end
    
@@ -95,5 +98,9 @@ before_filter :find_logged_emp
 
   def find_logged_emp
       @emp=current_emp
+  end
+
+  def find_user_id
+      @uid=current_user_id
   end
 end

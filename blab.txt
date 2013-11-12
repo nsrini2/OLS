@@ -1,18 +1,27 @@
-       login_authentication        /authentication/login(.:format)         authentication#login
-      logout_authentication GET    /authentication/logout(.:format)        authentication#logout
-set_password_authentication        /authentication/set_password(.:format)  authentication#set_password
-             authentication POST   /authentication(.:format)               authentication#create
-         new_authentication GET    /authentication/new(.:format)           authentication#new
-        edit_authentication GET    /authentication/edit(.:format)          authentication#edit
-                            GET    /authentication(.:format)               authentication#show
-                            PUT    /authentication(.:format)               authentication#update
-                            DELETE /authentication(.:format)               authentication#destroy
-                   employee PUT    /employees/:id(.:format)                employees#update
-    leave_balances_employee GET    /employees/:id/leave_balances(.:format) employees#leave_balances
-                  employees GET    /employees(.:format)                    employees#index
-                            POST   /employees(.:format)                    employees#create
-               new_employee GET    /employees/new(.:format)                employees#new
-              edit_employee GET    /employees/:id/edit(.:format)           employees#edit
-                            GET    /employees/:id(.:format)                employees#show
-                            PUT    /employees/:id(.:format)                employees#update
-                            DELETE /employees/:id(.:format)                employees#destroy
+          login_authentication        /authentication/login(.:format)                   authentication#login
+         logout_authentication GET    /authentication/logout(.:format)                  authentication#logout
+   set_password_authentication        /authentication/set_password(.:format)            authentication#set_password
+forgot_password_authentication        /authentication/forgot_password(.:format)         authentication#forgot_password
+ reset_password_authentication        /authentication/reset_password(.:format)          authentication#reset_password
+                authentication POST   /authentication(.:format)                         authentication#create
+            new_authentication GET    /authentication/new(.:format)                     authentication#new
+           edit_authentication GET    /authentication/edit(.:format)                    authentication#edit
+                               GET    /authentication(.:format)                         authentication#show
+                               PUT    /authentication(.:format)                         authentication#update
+                               DELETE /authentication(.:format)                         authentication#destroy
+                      employee PUT    /employees/:id(.:format)                          employees#update
+       leave_balances_employee GET    /employees/:id/leave_balances(.:format)           employees#leave_balances
+               employee_leaves GET    /employees/:employee_id/leaves(.:format)          leaves#index
+                               POST   /employees/:employee_id/leaves(.:format)          leaves#create
+            new_employee_leafe GET    /employees/:employee_id/leaves/new(.:format)      leaves#new
+           edit_employee_leafe GET    /employees/:employee_id/leaves/:id/edit(.:format) leaves#edit
+                employee_leafe GET    /employees/:employee_id/leaves/:id(.:format)      leaves#show
+                               PUT    /employees/:employee_id/leaves/:id(.:format)      leaves#update
+                               DELETE /employees/:employee_id/leaves/:id(.:format)      leaves#destroy
+                     employees GET    /employees(.:format)                              employees#index
+                               POST   /employees(.:format)                              employees#create
+                  new_employee GET    /employees/new(.:format)                          employees#new
+                 edit_employee GET    /employees/:id/edit(.:format)                     employees#edit
+                               GET    /employees/:id(.:format)                          employees#show
+                               PUT    /employees/:id(.:format)                          employees#update
+                               DELETE /employees/:id(.:format)                          employees#destroy

@@ -60,7 +60,7 @@ has_one :user, :dependent => :destroy
 has_many :subordinates, :class_name => "Employee", :foreign_key => "manager_emp_id"
 belongs_to :manager, :class_name => "Employee"
 
-accepts_nested_attributes_for :leaves
+accepts_nested_attributes_for :leaves, :reject_if => lambda{|a| !a[:admin_comments].equals("Initial Credit")}
 
 def self.search(search)
    if search
@@ -80,6 +80,23 @@ def dates_cannot_be_in_the_future
        (!doj.blank? and doj > Date.today) 
        errors.add(:dob,"Date of birth cannot be in the future") if
        (!dob.blank? and dob > Date.today)
+end
+
+def find_leave_approver
+emp=self
+    while (1) do
+          if emp.manager.is_leave_approver?
+              manager=emp.manager
+              #ActiveRecord::Base.logger.info("The manager now is: #{manager.last_name}, #{manager.emp_id}")
+              return manager
+           else
+              emp=emp.manager
+          end
+    end
+end
+
+def manager
+    Employee.find_by_emp_id(self.manager_emp_id)
 end
 
 

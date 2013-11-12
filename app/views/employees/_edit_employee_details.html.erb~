@@ -1,4 +1,4 @@
-<%= form_for @employee, :url => employee_path(@employee), :html => {:class => "emp_form"} do |f| -%>
+<%= form_for :employee, :url => employee_path(@employee), :html => {:class => "emp_form"} do |f| -%>
 
 <fieldset id="new_emp_pers_detail">
 
@@ -19,7 +19,7 @@
   <%= f.radio_button :gender, "Female" %>
   <label for="employee_gender_female" id="emp_gender_female">Female</label>
 
-  <br/><br/>
+  <br/><br/><br/>
 
   <label for="emp_local_addr">Local address</label>
   <%= f.text_area :local_addr, :cols => 15, :rows => 5, :maxlength =>'500' %><br/><br/>
@@ -84,28 +84,21 @@
   
 </fieldset>
 
-<%=f.fields_for :leave do |l| %>
 <fieldset id="new_emp_leave_detail">
 <h4>Joining Leave Credits</h4>
+<%=f.fields_for :leaves do |l| %>
+
+<%content_for(:page_title, "Leave Details")%>
   <!--<label for="CL">Casual Leaves</label>-->
-  <%= l.select :leave_type, ['CL,'EL','SL','OH'] %>
-  <%= l.text_field :no_of_days, :size=>'15' %><br/><br/>
+   <%=l.select :leave_type, options_for_select([['CL','CL'],['EL','EL'],['SL','SL'],['OH','OH']]) %>
+  <%=l.text_field :no_of_days, :size=>'15' %> days <br/><br/>
+  <%=l.hidden_field :start_date, :value => Date.today%>
+  <%=l.hidden_field :end_date, :value => Date.today%>
+  <%=l.hidden_field :admin_comments, :value => 'Initial Credit'%>
+  <%=l.hidden_field :action, :value => 'Credit'%>
+  <%=l.hidden_field :requester_emp_id, :value => @employee.emp_id %>
 
-  
-  <!--<label for="SL">Sick Leaves</label>-->
-  <%= l.select :leave_type, ['CL,'EL','SL','OH'] %>
-  <%= l.text_field :no_of_days, :size=>'15' %><br/><br/>
-
-  <!--<label for="EL">Earned Leaves</label>-->
-  <%= l.select :leave_type, ['CL,'EL','SL','OH'] %>
-  <%= l.text_field :el, :size=>'15' %><br/><br/>
-
-  <!--<label for="OH">Optional Holidays</label>-->
-  <%= l.select :leave_type, ['CL,'EL','SL','OH'] %>
-  <%= l.text_field :oh, :size=>'15' %><br/><br/>
-
-  
-<%end%>	
+<%end%>
 
 <div class="buttons">
 	<input type="submit" name="commit" value="Update Employee" class="button_large" tabindex="8"> 

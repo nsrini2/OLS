@@ -22,6 +22,10 @@ class ApplicationController < ActionController::Base
       session[:user].employee
   end
 
+  def current_user_id
+      session[:user].id
+  end
+
 
   def set_cache_remove
       response.headers["Cache-Control"]="no-cache, no-store, max-age=0, must-revalidate"

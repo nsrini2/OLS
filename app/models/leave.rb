@@ -1,5 +1,6 @@
 class Leave < ActiveRecord::Base
-  attr_accessible :action_remarks, :admin_comments, :approver_emp_id, :end_date, :ref_id, :leave_type, :no_of_days, :request_remarks, :requester_emp_id, :start_date, :status, :request_remarks,:request_date, :action
+  attr_accessible :action_remarks, :admin_comments, :approver_emp_id, :end_date, :ref_id, :leave_type, :no_of_days,
+ :request_remarks, :requester_emp_id, :start_date, :status, :request_remarks,:request_date, :action
 
 validates_presence_of :requester_emp_id
 validates_presence_of :leave_type
@@ -11,5 +12,5 @@ validates_numericality_of :requester_emp_id, :only_integer => true, :message => 
 validates_numericality_of :no_of_days, :only_integer => true, :message => "Please enter a whole no for no. of days of leave"
 validates_date :start_date, :end_date
 
-belongs_to :employee, :foreign_key => 'employee_id'
+belongs_to :employee, :class_name => 'Employee', :foreign_key => 'employee_id'
 end

@@ -2,7 +2,7 @@ require 'authenticated_system'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter => :set_cache_remove
+  before_filter :set_cache_remove
 
 
   def login_required
